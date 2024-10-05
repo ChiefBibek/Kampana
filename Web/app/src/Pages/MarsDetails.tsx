@@ -1,16 +1,20 @@
 import { Canvas } from "@react-three/fiber";
-import Moon from "../Components/Moon";
-import Mars from "../Components/Mars";
+import { OrbitControls } from "@react-three/drei";
+import SmallMars from "../Components/SmallMars";
+import MarsBrief from "../Components/MarsBrief";
 
 const MarsDetails = () => {
   return (
-    <section className="flex ">
-      <div className="bg-red-500 w-3/4">Hello World</div>
-      <div className="h-screen w-screen relative">
-            <Canvas className="absolute inset-0">
-             <Mars/>
-            </Canvas>
-          </div>
+    <section className="flex h-[86.4vh] overflow-hidden">
+      <div className="w-3/4">
+        <MarsBrief/>
+      </div>
+      <div className="h-screen relative w-1/4">
+        <Canvas>
+          <OrbitControls />
+          <SmallMars/>
+        </Canvas>
+      </div>
     </section>
   );
 };

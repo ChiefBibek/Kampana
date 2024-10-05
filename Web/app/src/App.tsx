@@ -2,10 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import HomePage from "./Pages/HomePage"
 import EventDetection from "./Pages/EventDetection"
 import Resources from "./Pages/Resources"
-import About from "./Pages/About"
 import Layout from "./Components/Layout"
 import MarsDetails from "./Pages/MarsDetails"
 import MoonDetails from "./Pages/MoonDetails"
+import About from "./Pages/About"
 
 const App = () => {
   return (
