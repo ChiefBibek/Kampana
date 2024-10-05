@@ -1,10 +1,15 @@
-const express =require('express')
-import { quakeRouter } from './route/quake.route';
+import express, { Request, Response } from "express";
+import quakeRoutes from './route/quake.route';
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use('/quake', quakeRouter);
+app.use("/quake", quakeRoutes);
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+app.use("/", (req: Request, res: Response) => {
+  res.send("Port is working");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

@@ -1,8 +1,8 @@
-// models/Earthquake.js
+// models/Quake.js
 import mongoose from 'mongoose';
 import { Schema, Document, Types } from 'mongoose';
 
-export interface EarthquakeDocument extends Document {
+export interface QuakeDocument extends Document {
     _id: Types.ObjectId;
     filename: string;
     time_abs: string;
@@ -11,7 +11,7 @@ export interface EarthquakeDocument extends Document {
     mq_type: string;
 }
 
-const earthquakeSchema = new Schema<EarthquakeDocument>({
+const QuakeSchema = new Schema<QuakeDocument>({
     _id: { type: Schema.Types.ObjectId, auto: true },
     filename: { type: String, required: true },
     time_abs: { type: String, required: true },
@@ -20,4 +20,4 @@ const earthquakeSchema = new Schema<EarthquakeDocument>({
     mq_type: { type: String, required: true },
 });
 
-export const Earthquake = mongoose.model<EarthquakeDocument>('Earthquake', earthquakeSchema);
+export const Quake = mongoose.model<QuakeDocument>('Quake', QuakeSchema);
