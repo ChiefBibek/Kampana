@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from "express";
 import { Quake } from "../model/quake.model";
 import { connectDB } from "../util/db";
 
-const router = express.Router();
+const  router=express.Router();
 
 router.get("/getData/:id", async (req: Request, res: Response) => {
   try {
