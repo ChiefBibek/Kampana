@@ -5,7 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero': "url('/Images/HomeBg.png')",
+      },
+      borderRadius: {
+        'required': '1.875rem', // Add custom rounded value
+      },
+
+    },
   },
   plugins: [],
 }
