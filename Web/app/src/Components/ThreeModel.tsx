@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import { Canvas } from "@react-three/fiber";
 import Moon from "./Moon";
