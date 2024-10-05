@@ -1,7 +1,11 @@
-const EventDetection = () => {
-  return (
-    <div>EventDetection</div>
-  )
-}
+import ThreeModel from "../Components/ThreeModel";
 
-export default EventDetection
+const EventDetection: React.FC = () => {
+  return (
+    <section>
+      <ThreeModel/>  
+    </section>
+  );
+};
+
+export default EventDetection;
