@@ -41,12 +41,10 @@ const ThreeModel: React.FC = () => {
     }
   }, [currentSlide]);
 
-  // Function to handle text click
   const handleTextClick = () => {
     if (currentSlide === 0) {
-      navigate("/event-detection/moon"); // Navigate to event-detection/moon
-    } else {
-      navigate("/event-detection/mars"); // Navigate to event-detection/mars
+      navigate("/event-detection/moon");  } else {
+      navigate("/event-detection/mars");
     }
   };
 

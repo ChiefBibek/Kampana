@@ -4,6 +4,8 @@ import EventDetection from "./Pages/EventDetection"
 import Resources from "./Pages/Resources"
 import About from "./Pages/About"
 import Layout from "./Components/Layout"
+import MarsDetails from "./Pages/MarsDetails"
+import MoonDetails from "./Pages/MoonDetails"
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
           <Route path="/event-detection" element={<EventDetection />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/about" element={<About />} />
+          <Route path="/event-detection/moon" element={<MoonDetails/>} /> 
+          <Route path="/event-detection/mars" element={<MarsDetails />} /> 
         </Route>
       </Routes>
     </BrowserRouter>
