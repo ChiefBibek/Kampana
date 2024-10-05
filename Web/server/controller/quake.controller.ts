@@ -1,28 +1,30 @@
-import express, { Request, Response } from 'express';
+// quake.controller.ts
+import { Request, Response } from 'express';
 import { Earthquake } from '../model/quake.model';
 
-const router = express.Router();
+export const quakeController = {
+    getQuake: (req: Request, res: Response) => {
+        res.status(200).json({ message: 'Quake API up and running' });
+    },
+    createQuake: async (req: Request, res: Response) => {
+        const { _id, filename, time_abs, time_rel, evid, mq_type } = req.body;
 
-router.get('/', (req: Request, res: Response) => {
-    res.status(200).json({ message: 'Quake API up and running' });
-});
+        const earthquake = new Earthquake({
+            _id,
+            filename,
+            time_abs,
+            time_rel,
+            evid,
+            mq_type
+        });
 
-router.post('/createQuake', async (req: Request, res: Response) => {
-    const { _id, filename, time_abs, time_rel, evid, mq_type } = req.body;
+        try {
+            const savedEarthquake = await earthquake.save();
+            console.log(req.body);
+            res.status(201).json(savedEarthquake);
+        } catch (error) {
+            res.status(400).json({ message: 'Error creating earthquake', error });
+        }
+    },
+};
 
-    const earthquake = new Earthquake({
-        _id,
-        filename,
-        time_abs,
-        time_rel,
-        evid,
-        mq_type
-    });
-
-    try {
-        await earthquake.save();
-        res.status(201).json(earthquake);
-    } catch (error) {
-        res.status(400).json({ message: 'Error creating earthquake', error });
-    }
-});
