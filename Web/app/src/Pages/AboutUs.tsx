@@ -1,6 +1,6 @@
 import React from 'react';
 import './AboutUs.css';
-import { solarsystem } from '../Images';
+import { solarsystem, testpic } from '../Images';
 
 const AboutUs: React.FC = () => {
   return (
@@ -17,14 +17,37 @@ const AboutUs: React.FC = () => {
       <h1 id='our-team'>Our Team</h1>
       <div className="team-container">
         <div className='upper'>
-          <div className="team-member">1</div>
-          <div className="team-member">2</div>
-          <div className="team-member">3</div>
+          <div className="team-member">
+            <div className='photo'>
+              <img src={testpic} alt="bibek" />
+              <div className='desc'>
+                <p>UI/UX Designer</p>
+              </div>
+              <p className='more-desc'>Bibek Bikram Shahi</p>
+            </div>
+          </div>
+          <div className="team-member">
+            <div className='photo'></div>
+            
+          </div>
+          <div className="team-member">
+            <div className='photo'></div>
+            
+          </div>
         </div>
         <div className='lower'>
-          <div className="team-member">4</div>
-          <div className="team-member">5</div>
-          <div className="team-member">6</div>
+          <div className="team-member">
+            <div className='photo'></div>
+            
+          </div>
+          <div className="team-member">
+            <div className='photo'></div>
+            
+          </div>
+          <div className="team-member">
+            <div className='photo'></div>
+            
+          </div>
         </div>
       </div>
     </div>
