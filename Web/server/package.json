@@ -15,7 +15,7 @@
     "@types/node": "^22.7.4"
   },
   "dependencies": {
-    "express": "^4.21.0",
+    "express": "^2.5.11",
     "mongoose": "^8.7.0"
   }
 }

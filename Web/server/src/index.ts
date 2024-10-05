@@ -1,4 +1,4 @@
-const express = require('express');
+const express =require('express')
 import { quakeRouter } from './route/quake.route';
 
 const app = express();
