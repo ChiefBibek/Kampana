@@ -1,4 +1,4 @@
-import { SpaceByte } from "../Images";
+import { Project } from "../Images";
 import { NavContent } from "../Data";
 import { Link, useLocation } from "react-router-dom";
 
@@ -12,8 +12,8 @@ const NavBar = () => {
 
   return (
     <header className={`flex justify-between ${navbarStyle}`}>
-      <div>
-        <img src={SpaceByte} alt="logo" />
+      <div className="">
+        <img src={Project} alt="logo" width={100}/>
       </div>
       <nav>
         <ul className="flex">
