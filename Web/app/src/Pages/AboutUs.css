@@ -1,0 +1,77 @@
+.about-container {
+  color: white;
+  background-color: black;
+
+}
+
+.solarsys {
+  position: absolute;
+  right: 0;
+  top: 20%;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+h1 {
+  margin-bottom: 5vw;
+  margin-top: 10vw;
+  text-align: left;
+  margin-left: 7vw;
+}
+
+p {
+  margin-left: 7vw;
+  font-size: 22px;
+  width: 39%;
+}
+
+#about-par {
+  width: 39%;
+}
+
+#our-team {
+  margin-bottom: 7rem;
+}
+  
+.team-container {
+  height: 90vh;
+  width: 80vw;
+  /* background-color: red; */
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 14%;
+}
+  
+.team-member {
+  width: 20vw;
+  height: 42vh;
+  background-color: rgb(190, 190, 190);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  color: black;
+  font-size: 1.2rem;
+  border-radius: 10%;
+}
+
+.upper {
+  height: 50%;
+  /* background-color: yellow; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3vw;
+}
+
+.lower {
+  margin-top: 3vh;
+  gap: 1vw;
+  height: 50%;
+  width: 100%;
+  /* background-color: blue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
