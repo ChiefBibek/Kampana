@@ -1,6 +1,6 @@
 // quake.route.ts
 import express, { Request, Response } from 'express';
-import { quakeController } from '../../controller/quake.controller';
+import { quakeController } from '../controller/quake.controller';
 
 const router = express.Router();
 
