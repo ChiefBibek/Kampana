@@ -4,7 +4,7 @@ import {  useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
 const Mars: React.FC = () => {
-  const tex = useTexture("./Images/8k_mars.jpg");
+  const tex = useTexture("/Images/8k_mars.jpg");
   const planet = useRef<THREE.Mesh>(null);
   
   useFrame((_, delta) => {

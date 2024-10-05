@@ -1,6 +1,6 @@
 import React from "react";
 
-const SmallMars: React.FC = () => {
+const SmallMoon: React.FC = () => {
 
 
   return (
@@ -11,4 +11,4 @@ const SmallMars: React.FC = () => {
   );
 };
 
-export default SmallMars;
+export default SmallMoon;
