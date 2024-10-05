@@ -23,7 +23,7 @@ export const quakeController = {
             console.log(req.body);
             res.status(201).json(savedEarthquake);
         } catch (error) {
-            res.status(400).json({ message: 'Error creating earthquake', error });
+            res.status(400).json({ message: 'Error saving quake to database', error });
         }
     },
 };
