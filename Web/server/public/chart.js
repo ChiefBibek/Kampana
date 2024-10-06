@@ -8,9 +8,9 @@ const conditions = new Map([
   ]);
   
   // Populate year dropdowns
-  const endYear = 1977;
+const endYear = 1975;
   const startYear = 1970;
-  const yearSelects = document.querySelectorAll('select');
+const yearSelects = document.querySelectorAll("select");
   
   for (let year = startYear; year <= endYear; year++) {
     yearSelects.forEach(select => {
