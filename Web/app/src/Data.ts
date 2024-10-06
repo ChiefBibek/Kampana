@@ -1,4 +1,4 @@
-import { SpaceByte } from "./Images";
+import { MarsMissionImage, MoonMissionImage, SpaceByte } from "./Images";
 
 export const NavContent = [
   { name: "Home", path: "/" },
@@ -9,18 +9,19 @@ export const NavContent = [
 
 export const cardData = [
   {
-    title: "Card Title 1",
-    imageSrc: SpaceByte,
+    title: "Apollo Mission",
+    imageSrc: MoonMissionImage,
     description:
-      "This is a brief description for Card Title 1. It provides a quick summary of the content or purpose of the card.",
+      "The Apollo missions were designed to land humans on the Moon and safely return them to Earth. Apollo 11, in 1969, marked the first human steps on the Moon.",
   },
   {
-    title: "Card Title 2",
-    imageSrc: SpaceByte,
+    title: "Mars Insight",
+    imageSrc: MarsMissionImage,
     description:
-      "This is a brief description for Card Title 2. It provides a quick summary of the content or purpose of the card.",
+      "NASA's Mars InSight mission studies Mars' seismic activity and heat flow, offering insights into the planet's structure and formation.",
   },
 ];
+
 
 export const SeismicData = [
   {
@@ -37,3 +38,48 @@ export const footerLinks = [
   "Privacy Policy",
   "Terms & Conditions"
 ];
+
+// export const MarsBriefData = [
+//   {
+//     text: "lorem ipsum lorem ipsumlorem ipsumlorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum",
+//   },
+// ];
+
+// export const MoonBriefData = [
+//   {
+//     text: "lorem ipsum lorem ipsumlorem ipsumlorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum",
+//   },
+// ];
+
+export const OurTeam=[
+  {
+    name:"Bibek Bikram Shahi",
+    role:"AI/ML Developer",
+    image:SpaceByte,
+  },
+  {
+    name:"Laya Pandey",
+    role:"AI/ML Developer",
+    image:SpaceByte,
+  },
+  {
+    name:"Sanisha Kayastha Shrestha",
+    role:"UI/UX Designer",
+    image:SpaceByte,
+  },
+  {
+    name:"Biranchi Kumar Shah",
+    role:"Frontend Developer",
+    image:SpaceByte,
+  },
+  {
+    name:"Deepan Paudel",
+    role:"Backend Developer",
+    image:SpaceByte,
+  },
+  {
+    name:"Anwit Dahal",
+    role:"Frontend Developer",
+    image:SpaceByte,  
+  },
+]

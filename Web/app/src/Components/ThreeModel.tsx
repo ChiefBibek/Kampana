@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import { Canvas } from "@react-three/fiber";
 import Moon from "./Moon";
@@ -12,7 +12,14 @@ const ThreeModel: React.FC = () => {
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const textRef = useRef<HTMLHeadingElement>(null);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const descRef = useRef<HTMLParagraphElement>(null);
+  const navigate = useNavigate();
+
+  // Descriptions for each planet
+  const descriptions = {
+    0: "The Moon is Earth's only natural satellite, playing a vital role in our planet's tides and climate.",
+    1: "Mars is known as the Red Planet, famous for its reddish appearance and potential for past life.",
+  };
 
   const settings = {
     dots: false,
@@ -26,16 +33,21 @@ const ThreeModel: React.FC = () => {
     ref: sliderRef,
   };
 
-  // Function to navigate to a specific slide
   const goToSlide = (index: number) => {
     sliderRef.current?.slickGoTo(index);
   };
 
   useEffect(() => {
-    if (textRef.current) {
+    if (textRef.current && descRef.current) {
       gsap.fromTo(
         textRef.current,
         { opacity: 0, y: -50 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power1.out" }
+      );
+
+      gsap.fromTo(
+        descRef.current,
+        { opacity: 0, y: -30 },
         { opacity: 1, y: 0, duration: 0.5, ease: "power1.out" }
       );
     }
@@ -43,54 +55,62 @@ const ThreeModel: React.FC = () => {
 
   const handleTextClick = () => {
     if (currentSlide === 0) {
-      navigate("/event-detection/moon");  } else {
+      navigate("/event-detection/moon");
+    } else {
       navigate("/event-detection/mars");
     }
   };
 
   return (
-    <div className="flex flex-col justify-between bg-planetbg">
+    <div className="flex flex-col justify-between bg-planetbg bg-cover bg-center h-[86.4vh] overflow-hidden">
       <div className="flex-grow relative">
         <Slider {...settings}>
-          <div className="h-screen w-screen relative">
+          <div className="h-[90vh] w-screen relative pt-10">
             <Canvas className="absolute inset-0">
-              <ambientLight intensity={0.5} />
+              <ambientLight intensity={1} />
               <Moon />
             </Canvas>
           </div>
-          <div className="h-screen w-screen relative">
+          <div className="h-[90vh] w-screen relative pt-10">
             <Canvas className="absolute inset-0">
-              <ambientLight intensity={0.5} />
+              <ambientLight intensity={1} />
               <Mars />
             </Canvas>
           </div>
         </Slider>
 
-        {/* Overlay Text with Click Handler */}
         <h1
           ref={textRef}
-          onClick={handleTextClick} // Add click handler here
+          onClick={handleTextClick}
           className="absolute top-10 left-1/2 transform -translate-x-1/2 text-4xl font-bold text-white text-center cursor-pointer"
         >
           {currentSlide === 0 ? "Moon" : "Mars"}
         </h1>
-      </div>
 
-      {/* Footer with Planet Buttons */}
-      <footer className="bg-gray-900 text-white py-4 text-center space-x-4">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={() => goToSlide(0)}
+        {/* Description Text */}
+        <p
+          ref={descRef}
+          className="absolute top-20 left-1/2 transform -translate-x-1/2 text-xl text-white text-center"
         >
-          Moon
-        </button>
-        <button
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-          onClick={() => goToSlide(1)}
-        >
-          Mars
-        </button>
-      </footer>
+          {descriptions[currentSlide]}
+        </p>
+
+        {/* Planet Navigation Buttons */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 space-x-32" style={{ top: "85%" }}>
+          <button
+            className="bg-transparent text-white text-xl"
+            onClick={() => goToSlide(0)}
+          >
+            Moon
+          </button>
+          <button
+            className="bg-transparent text-white text-xl"
+            onClick={() => goToSlide(1)}
+          >
+            Mars
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

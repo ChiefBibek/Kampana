@@ -1,15 +1,19 @@
 import React from "react";
 
 interface CustomButtonProps {
-  text: string; // Declaring the type for the 'text' prop
+  text: string;
   icon?: React.ReactNode;
+  onClick?: () => void;
 }
 
-// Arrow function syntax for functional component
-const CustomButton: React.FC<CustomButtonProps> = ({ text, icon }) => (
-  <button className="bg-[#FFF9F9] rounded-required p-5 font-bold text-black text-2xl flex justify-center items-center">
-    {text}
-    {icon && <span className="text-black px-5 pt-2 flex justify-center items-center">{icon}</span>}
+const CustomButton: React.FC<CustomButtonProps> = ({ text, icon, onClick }) => (
+  <button
+    onClick={onClick}
+    className="bg-[#FFF9F9] rounded-required py-3 px-4 font-semibold text-black text-xl flex justify-center items-center space-x-2"
+  >
+    {/* Flex container with space between text and icon */}
+    <span>{text}</span>
+    {icon && <span className="flex items-center">{icon}</span>}
   </button>
 );
 

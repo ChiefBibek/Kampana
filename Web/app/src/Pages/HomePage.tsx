@@ -8,7 +8,7 @@ const HomePage = () => {
     <section>
         <HeroSection/>
         <BriefOverview/>
-        <Explain/>
+        {/* <Explain/> */}
         <Footer/>
     </section>
   )
