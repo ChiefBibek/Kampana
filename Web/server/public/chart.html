@@ -3,16 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seismic Data Chart</title>
+  <title>Lunar and Mars Seismic Data Comparison</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
   <style>
-    .year-selector {
-      margin: 20px 0;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
     }
-    .year-selector label {
+    .chart-container {
+      flex: 1;
+      min-width: 300px;
+      margin: 10px;
+    }
+    .control-panel {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .control-panel label {
       margin-right: 10px;
     }
-    .year-selector select {
+    .control-panel select {
       margin-right: 20px;
       padding: 5px;
     }
@@ -20,21 +34,120 @@
       padding: 5px 10px;
       cursor: pointer;
     }
+    h1 {
+      text-align: center;
+    }
+    h2 {
+      text-align: center;
+    }
+    #chart-controls {
+      text-align: center;
+      margin-bottom: 20px;
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    .data-type-selector {
+      margin-bottom: 15px;
+    }
+    select {
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
 <body>
-  <h1>Seismic Data Chart</h1>
-  <div class="year-selector">
-    <label for="startYear">Start Year:</label>
-    <select id="startYear"></select>
+  <h1>Seismic Data Comparison: Lunar vs Mars</h1>
+  
+  <div id="chart-controls">
+    <div class="data-type-selector">
+      <label for="dataType">Data Type:</label>
+      <select id="dataType" onchange="updateBothCharts()">
+        <option value="magnitude">Magnitude</option>
+        <option value="depth">Depth</option>
+        <option value="frequency">Frequency</option>
+        <option value="duration">Duration</option>
+      </select>
+    </div>
     
-    <label for="endYear">End Year:</label>
-    <select id="endYear"></select>
-    
-    <button onclick="updateChart()">Update Chart</button>
+    <div class="control-panel">
+      <label for="startYear">Start Year:</label>
+      <select id="startYear"></select>
+      
+      <label for="endYear">End Year:</label>
+      <select id="endYear"></select>
+      
+      <button onclick="updateBothCharts()">Update Charts</button>
+    </div>
   </div>
-  <div id="chart"></div>
 
-  <script src="chart.js" defer></script>
+  <div class="container">
+    <div class="chart-container">
+      <h2>Lunar Seismic Data</h2>
+      <div id="lunarChart"></div>
+    </div>
+    
+    <div class="chart-container">
+      <h2>Mars Seismic Data</h2>
+      <div id="marsChart"></div>
+    </div>
+  </div>
+
+  <script src="lunarChart.js"></script>
+  <script src="marsChart.js"></script>
+  <script>
+    function updateBothCharts() {
+      const dataType = document.getElementById('dataType').value;
+      const startYear = document.getElementById('startYear').value;
+      const endYear = document.getElementById('endYear').value;
+
+      if (typeof updateLunarChart === 'function') {
+        updateLunarChart(dataType, startYear, endYear);
+      }
+      if (typeof updateMarsChart === 'function') {
+        updateMarsChart(dataType, startYear, endYear);
+      }
+    }
+
+    function initializeYearDropdowns() {
+      const startYearSelect = document.getElementById('startYear');
+      const endYearSelect = document.getElementById('endYear');
+      const currentYear = new Date().getFullYear();
+      const startYear = 1969; // First lunar seismic data
+
+      for (let year = startYear; year <= currentYear; year++) {
+        startYearSelect.add(new Option(year, year));
+        endYearSelect.add(new Option(year, year));
+      }
+
+      // Set default values
+      endYearSelect.value = currentYear;
+      startYearSelect.value = currentYear - 5;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeYearDropdowns();
+      
+      if (typeof initLunarChart === 'function') {
+        initLunarChart();
+      }
+      if (typeof initMarsChart === 'function') {
+        initMarsChart();
+      }
+    });
+  </script>
 </body>
 </html>

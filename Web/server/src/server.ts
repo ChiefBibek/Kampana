@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
-import quakeRoutes from './route/quake.route';  // Your API routes
+import marsRoute from './route/mars.route';  // Your API routes
+import lunarRoute from './route/lunar.route';  // Your API routes
 import dotenv from 'dotenv';
 import path from 'path';
 import cors from 'cors';
@@ -24,7 +25,8 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 // API routes
-app.use("/api/quake", quakeRoutes);
+app.use("/api/quake", lunarRoute);
+app.use("/api/quake", marsRoute);
 
 // Start the server
 app.listen(PORT, () => {
