@@ -1,7 +1,6 @@
-// lunarChart.js (for marsChart.js, replace 'lunar' with 'mars' in the API endpoint)
-
-// Define chart dimensions
-const width = 1920;
+// lunarChart.js
+const totalWidth = 1920;
+const chartWidth = totalWidth / 2;
 const height = 500;
 const marginTop = 20;
 const marginRight = 20;
@@ -9,8 +8,7 @@ const marginBottom = 30;
 const marginLeft = 40;
 
 function initLunarChart() {
-    // Initialize the chart (if needed)
-    // This could be empty if no initialization is required
+    // Initial chart render if needed
 }
 
 function updateLunarChart() {
@@ -39,31 +37,31 @@ function updateLunarChart() {
     })
     .then(data => {
         console.log("Lunar data:", data);
-        renderSeismograph(data, "lunarChart");
+        renderLunarSeismograph(data);
     })
     .catch(error => console.error("Error fetching lunar data:", error));
 }
 
-function renderSeismograph(data, elementId) {
+function renderLunarSeismograph(data) {
     // Create the scales
     const x = d3.scaleUtc()
         .domain(d3.extent(data, d => new Date(d.time_abs)))
-        .rangeRound([marginLeft, width - marginRight]);
+        .rangeRound([marginLeft, chartWidth - marginRight]);
 
-    // Adjust y scale for seismograph effect
-    const yExtent = d3.extent(data, d => d.time_rel);
+    // Use velocity for y-axis
+    const yExtent = d3.extent(data, d => d.velocity);
     const yAmplitude = Math.max(Math.abs(yExtent[0]), Math.abs(yExtent[1]));
 
     const y = d3.scaleLinear()
         .domain([-yAmplitude, yAmplitude])
         .rangeRound([height - marginBottom, marginTop]);
 
-    // Create the SVG container with a beige background
-    const svg = d3.select(`#${elementId}`)
+    // Create the SVG container
+    const svg = d3.select("#lunarChart")
         .append("svg")
-        .attr("width", width)
+        .attr("width", chartWidth)
         .attr("height", height)
-        .attr("viewBox", [0, 0, width, height])
+        .attr("viewBox", [0, 0, chartWidth, height])
         .attr("style", "max-width: 100%; height: auto; background-color: #f5f5dc;");
 
     // Create background grid lines
@@ -71,7 +69,7 @@ function renderSeismograph(data, elementId) {
 
     // Vertical grid lines
     gridLines.selectAll("line.vertical")
-        .data(d3.range(marginLeft, width - marginRight, 30))
+        .data(d3.range(marginLeft, chartWidth - marginRight, 30))
         .join("line")
         .attr("class", "vertical")
         .attr("x1", d => d)
@@ -87,7 +85,7 @@ function renderSeismograph(data, elementId) {
         .join("line")
         .attr("class", "horizontal")
         .attr("x1", marginLeft)
-        .attr("x2", width - marginRight)
+        .attr("x2", chartWidth - marginRight)
         .attr("y1", d => d)
         .attr("y2", d => d)
         .attr("stroke", "#ddd")
@@ -97,7 +95,7 @@ function renderSeismograph(data, elementId) {
     const line = d3.line()
         .curve(d3.curveLinear)
         .x(d => x(new Date(d.time_abs)))
-        .y(d => y(d.time_rel));
+        .y(d => y(d.velocity));
 
     // Add the seismograph line
     svg.append("path")
@@ -111,20 +109,16 @@ function renderSeismograph(data, elementId) {
     const xAxis = svg.append("g")
         .attr("transform", `translate(0,${height - marginBottom})`)
         .call(d3.axisBottom(x)
-            .ticks(width / 160)
+            .ticks(chartWidth / 160)
             .tickSizeOuter(0));
 
-    // Add measurement lines (left and right)
-    const yAxisLeft = svg.append("g")
+    // Add velocity axis
+    const yAxis = svg.append("g")
         .attr("transform", `translate(${marginLeft},0)`)
         .call(d3.axisLeft(y).ticks(10));
 
-    const yAxisRight = svg.append("g")
-        .attr("transform", `translate(${width - marginRight},0)`)
-        .call(d3.axisRight(y).ticks(10));
-
     // Style axes
-    [xAxis, yAxisLeft, yAxisRight].forEach(axis => {
+    [xAxis, yAxis].forEach(axis => {
         axis.select(".domain").attr("stroke", "#999");
         axis.selectAll(".tick line").attr("stroke", "#999");
         axis.selectAll(".tick text").attr("fill", "#666");
@@ -133,13 +127,17 @@ function renderSeismograph(data, elementId) {
     // Add a center line
     svg.append("line")
         .attr("x1", marginLeft)
-        .attr("x2", width - marginRight)
+        .attr("x2", chartWidth - marginRight)
         .attr("y1", y(0))
         .attr("y2", y(0))
         .attr("stroke", "#999")
         .attr("stroke-dasharray", "4,4");
-}
 
-// For marsChart.js, copy this entire file and replace:
-// 1. 'lunar' with 'mars' in the API endpoint
-// 2. 'lunarChart' with 'marsChart' in function names and element IDs
+    // Add title
+    svg.append("text")
+        .attr("x", chartWidth / 2)
+        .attr("y", marginTop)
+        .attr("text-anchor", "middle")
+        .attr("fill", "#333")
+        .style("font-size", "14px")
+}
