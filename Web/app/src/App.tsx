@@ -5,7 +5,6 @@ import Resources from "./Pages/Resources"
 import Layout from "./Components/Layout"
 import MarsDetails from "./Pages/MarsDetails"
 import MoonDetails from "./Pages/MoonDetails"
-import About from "./Pages/About"
 import PresentationThree from "./Pages/PresentationThree"
 import MarsDThree from "./Pages/MarsDThree"
 import MoonDThree from "./Pages/MoonDThree"
@@ -15,6 +14,7 @@ import PresentationOne from "./Pages/PresentationOne"
 import PresentationFive from "./Pages/PresentationFive"
 import PresentationSix from "./Pages/PresentationSix"
 import PresentationSeven from "./Pages/PresentationSeven"
+import AboutUs from "./Pages/About"
 
 const App = () => {
   return (

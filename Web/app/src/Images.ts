@@ -7,7 +7,6 @@ import Moon from '../public/Images/8k_moon.jpg'
 import MoonMission from '../public/Images/MoonMission.jpg'
 import MarsMission from '../public/Images/MarsMission.jpg'
 
-export const testpic = bibek;
 export const SpaceByte = logo;
 export const Project=project;
 export const seismic=SeismicImage
