@@ -20,4 +20,4 @@ const QuakeSchema = new Schema<QuakeDocument>({
     mq_type: { type: String, required: true },
 });
 
-export const Quake = mongoose.model<QuakeDocument>('Quake', QuakeSchema);
+export const Quake = mongoose.model<QuakeDocument>('Quake', QuakeSchema,'catalog');

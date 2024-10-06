@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seismic Data Chart</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <style>
+    .year-selector {
+      margin: 20px 0;
+    }
+    .year-selector label {
+      margin-right: 10px;
+    }
+    .year-selector select {
+      margin-right: 20px;
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Seismic Data Chart</h1>
+  <div class="year-selector">
+    <label for="startYear">Start Year:</label>
+    <select id="startYear"></select>
+    
+    <label for="endYear">End Year:</label>
+    <select id="endYear"></select>
+    
+    <button onclick="updateChart()">Update Chart</button>
+  </div>
+  <div id="chart"></div>
+
+  <script src="chart.js" defer></script>
+</body>
+</html>

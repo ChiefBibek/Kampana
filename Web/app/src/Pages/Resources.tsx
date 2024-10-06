@@ -1,3 +1,5 @@
+import './resource.css';
+
 const Resources = () => {
   return (
     <section className="pt-20 bg-black text-white">
