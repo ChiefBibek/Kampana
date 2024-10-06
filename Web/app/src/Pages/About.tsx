@@ -26,15 +26,18 @@ const AboutUs: React.FC = () => {
       <h1 className="mb-8 text-3xl">Our Team</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-28">
         {OurTeam.map((member, index) => (
-          <div key={index} className="relative group overflow-hidden">
+          <div
+            key={index}
+            className="relative group overflow-hidden w-60 h-80" // Updated width and height for smaller cards
+          >
             <img
-              src={member.image} // Use the image path from the member object
+              src={member.image}
               alt={member.name}
-              className="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-110" // Image takes the whole card and scales up on hover
+              className="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-110"
             />
             <div className="absolute inset-x-0 bottom-0 h-1/5 flex flex-col items-center justify-center bg-black bg-opacity-70 transform translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-              <h2 className="text-xl font-bold">{member.name}</h2>
-              <p className="text-md">{member.role}</p>
+              <h2 className="text-lg font-bold">{member.name}</h2> {/* Adjusted text size */}
+              <p className="text-sm">{member.role}</p> {/* Adjusted text size */}
             </div>
           </div>
         ))}

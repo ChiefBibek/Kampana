@@ -12,8 +12,6 @@ import PresentationTwo from "./Pages/PresentationTwo"
 import PresentationFour from "./Pages/PresentationFour"
 import PresentationOne from "./Pages/PresentationOne"
 import PresentationFive from "./Pages/PresentationFive"
-import PresentationSix from "./Pages/PresentationSix"
-import PresentationSeven from "./Pages/PresentationSeven"
 import AboutUs from "./Pages/About"
 
 const App = () => {
@@ -27,11 +25,9 @@ const App = () => {
           <Route path="/presentationthree" element={<PresentationThree />}/>
           <Route path="/presentationfour" element={<PresentationFour />}/>
           <Route path="/presentationfive" element={<PresentationFive />}/>
-          <Route path="/presentationsix" element={<PresentationSix />}/>
-          <Route path="/presentationseven" element={<PresentationSeven />}/>
           <Route path="/event-detection" element={<EventDetection />} />
           <Route path="/resources" element={<Resources />} />
-          <Route path="/about" element={<AboutUs />} />
+          <Route path="/about" element={<AboutUs/>} />
           <Route path="/event-detection/moon" element={<MoonDetails/>} /> 
           <Route path="/event-detection/mars" element={<MarsDetails />} /> 
           <Route path="/event-detection/mars/marsdthree" element={<MarsDThree />} /> 

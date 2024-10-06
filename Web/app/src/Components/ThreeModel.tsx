@@ -98,13 +98,13 @@ const ThreeModel: React.FC = () => {
         {/* Planet Navigation Buttons */}
         <div className="absolute left-1/2 transform -translate-x-1/2 space-x-32" style={{ top: "85%" }}>
           <button
-            className="bg-transparent text-white text-xl"
+            className="bg-red-100 px-5 py-2 text-black rounded-md text-xl"
             onClick={() => goToSlide(0)}
           >
             Moon
           </button>
           <button
-            className="bg-transparent text-white text-xl"
+            className="bg-blue-100 px-5 py-2 text-black rounded-md   text-xl"
             onClick={() => goToSlide(1)}
           >
             Mars

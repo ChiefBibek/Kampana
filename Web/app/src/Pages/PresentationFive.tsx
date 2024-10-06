@@ -71,11 +71,7 @@ const PresentationFive: React.FC = () => {
       </Link> 
 
       {/* Next Button */}
-      <Link to="/presentationsix" className="absolute bottom-5 right-5"> 
-        <button className="bg-white bg-opacity-80 rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-opacity-100 transition duration-200"> 
-          <IoIosArrowForward size={24} color="#000" /> 
-        </button> 
-      </Link> 
+     
     </section>
   );
 }
