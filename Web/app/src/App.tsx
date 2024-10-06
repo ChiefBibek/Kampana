@@ -12,8 +12,7 @@ import PresentationTwo from "./Pages/PresentationTwo"
 import PresentationFour from "./Pages/PresentationFour"
 import PresentationOne from "./Pages/PresentationOne"
 import PresentationFive from "./Pages/PresentationFive"
-import PresentationSix from "./Pages/PresentationSix"
-import PresentationSeven from "./Pages/PresentationSeven"
+import AboutUs from "./Pages/About"
 
 const App = () => {
   return (
