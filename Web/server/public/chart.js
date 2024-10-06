@@ -9,7 +9,7 @@ const conditions = new Map([
 
 // Example start and end times for fetching data
 const startTime = "1970-01-19T00:00:00.000Z"; // Start time in ISO format
-const endTime = "1975-01-23T23:59:59.999Z"; // End time in ISO format
+const endTime = "1972-01-23T23:59:59.999Z"; // End time in ISO format
 
 fetch("http://localhost:3000/api/quake/getDataByTimeRange", {
   method: "POST", // Use POST method to send body data
@@ -36,7 +36,7 @@ fetch("http://localhost:3000/api/quake/getDataByTimeRange", {
 
 function renderChart(data) {
 
-  const width = 928;
+  const width = 1920;
   const height = 500;
   const marginTop = 20;
   const marginRight = 20;
