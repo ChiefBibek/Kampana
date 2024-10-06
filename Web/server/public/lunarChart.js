@@ -35,7 +35,7 @@ function updateChart() {
   // Clear existing chart
   document.getElementById("chart").innerHTML = "";
 
-  fetch("http://localhost:3000/api/quake/getDataByTimeRange", {
+  fetch("http://localhost:3000/api/quake/lunar/getDataByTimeRange", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
