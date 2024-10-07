@@ -1,4 +1,4 @@
-import { Anwit, Bibek, Deepan, Laya, MarsMissionImage, MoonMissionImage, Sanisha, SpaceByte } from "./Images";
+import { Anwit, Bibek, Biranchi, Deepan, Laya, MarsMissionImage, MoonMissionImage, Sanisha, SpaceByte } from "./Images";
 
 export const NavContent = [
   { name: "Home", path: "/" },
@@ -59,7 +59,7 @@ export const OurTeam=[
   {
     name:"Biranchi Kumar Shah",
     role:"Frontend Developer",
-    image:Laya,
+    image:Biranchi,
   },
   {
     name:"Deepan Paudel",
