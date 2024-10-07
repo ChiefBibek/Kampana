@@ -32,8 +32,10 @@ const Resources = () => {
     },
   ];
 
-  // Define the single download link for all resources
-  const downloadLink = "https://drive.google.com/drive/folders/1Vwm9yxesyDtALWzMx8F0zW82qXLuLFaT?usp=sharing"; // Replace with the actual Google Drive link
+
+  const lunarSeismicLink = "https://drive.google.com/file/d/1PMAVwnl9HPXTEPdmvn2cwayGt-0T8qSq/view"; 
+  const marsSeismicLink = "https://drive.google.com/file/d/1X0LrrbIlNlwl_ZQB_CjeI-tiX7WbxvEG/view"; 
+  const downloadLink = "https://drive.google.com/drive/folders/1Vwm9yxesyDtALWzMx8F0zW82qXLuLFaT";
 
   return (
     <div className="container mx-auto p-6 min-h-screen bg-gradient-to-r from-black via-blue-900 to-black text-white">
@@ -68,6 +70,27 @@ const Resources = () => {
         >
           Download All Resources
         </a>
+      </div>
+      <div className="mt-8 text-center">
+        <h2 className="text-3xl font-bold mb-4">Additional Downloads</h2>
+        <div className="flex justify-center space-x-4">
+          <a
+            href={lunarSeismicLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition duration-200"
+          >
+            Lunar Seismic Data
+          </a>
+          <a
+            href={marsSeismicLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition duration-200"
+          >
+            Mars Seismic Data
+          </a>
+        </div>
       </div>
     </div>
   );

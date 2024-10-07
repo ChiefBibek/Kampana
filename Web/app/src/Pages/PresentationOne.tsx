@@ -1,4 +1,4 @@
-import { IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -25,6 +25,11 @@ const PresentationOne = () => {
         Seismic activity on planets and moons holds valuable insights into the formation and evolution of our solar system. By studying quakes and vibrations across celestial bodies, scientists can unravel the mysteries of their internal structures and geological processes.
       </motion.p>
 
+      <Link to="/" className="absolute bottom-5 left-5"> 
+        <button className="bg-white bg-opacity-80 rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-opacity-100 transition duration-200"> 
+          <IoIosArrowBack size={24} color="#000" /> 
+        </button> 
+      </Link> 
       {/* Next Button */}
       <Link to="/presentationtwo" className="absolute bottom-5 right-5 z-10"> 
         <button className="bg-white bg-opacity-80 rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-opacity-100 transition duration-200"> 
