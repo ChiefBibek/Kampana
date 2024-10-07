@@ -1,26 +1,3 @@
-
-
-Kampana: Seismic Detection Across Solar System
-==========================
-
-Project Description
--------------------
-
-Kampana is a seismic detection project that aims to analyze and visualize seismic activity on the Moon and Mars. The website showcases line graphs of detected seismic events, provides downloadable resources, and describes the project's goals and methodologies. The application is built using React and TypeScript for the frontend, with Python libraried and algorithms for data processing.
-
-Table of Contents
------------------
-
-*   [Getting Started](#getting-started)
-*   [Frontend Structure](#frontend-structure)
-*   [Server Setup](#server-setup)
-*   [Model Directory Structure](#model-directory-structure)
-*   [Python Algorithms](#python-algorithms)
-*   [Features](#features)
-*   [About the Team](#about-the-team)
-*   [Resources](#resources)
-
-##USER:
 Kampana: Seismic Detection Across Solar System
 ==========================
 
