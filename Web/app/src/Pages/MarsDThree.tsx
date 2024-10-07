@@ -1,5 +1,3 @@
-import React from 'react'
-
 const MarsDThree = () => {
   return (
     <div>MarsDThree</div>

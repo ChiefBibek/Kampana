@@ -16,7 +16,7 @@ const ThreeModel: React.FC = () => {
   const navigate = useNavigate();
 
   // Descriptions for each planet
-  const descriptions = {
+  const descriptions: { [key: number]: string } = {
     0: "The Moon is Earth's only natural satellite, playing a vital role in our planet's tides and climate.",
     1: "Mars is known as the Red Planet, famous for its reddish appearance and potential for past life.",
   };
@@ -29,7 +29,7 @@ const ThreeModel: React.FC = () => {
     slidesToScroll: 1,
     swipe: false,
     touchMove: false,
-    beforeChange: (current: number, next: number) => setCurrentSlide(next),
+    beforeChange: (_: number, next: number) => setCurrentSlide(next), // Use an underscore for unused variables
     ref: sliderRef,
   };
 

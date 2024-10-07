@@ -64,12 +64,15 @@ router.post("/lunar/getDataByTimeRange", (req, res) => __awaiter(void 0, void 0,
         console.log("Full Request Body:", req.body);
         yield (0, db_1.connectDB)();
         const { start, end } = req.body;
-        const startTime = new Date(start);
-        const endTime = new Date(end);
+        // Create start and end dates, setting time to beginning and end of day respectively
+        const startDate = new Date(start);
+        startDate.setHours(0, 0, 0, 0);
+        const endDate = new Date(end);
+        endDate.setHours(23, 59, 59, 999);
         const lunarEvents = yield lunar_model_1.LunarEvent.find({
             time_abs: {
-                $gte: startTime.toISOString(),
-                $lt: endTime.toISOString(),
+                $gte: startDate.toISOString(),
+                $lte: endDate.toISOString(),
             },
         });
         res.status(200).json(lunarEvents);

@@ -1,4 +1,4 @@
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 

@@ -1,4 +1,4 @@
-import { Anwit, Bibek, Biranchi, Deepan, Laya, MarsMissionImage, MoonMissionImage, Sanisha, SpaceByte } from "./Images";
+import { Anwit, Bibek, Biranchi, Deepan, Laya, MarsMissionImage, MoonMissionImage, Sanisha } from "./Images";
 
 export const NavContent = [
   { name: "Home", path: "/" },
