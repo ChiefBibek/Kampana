@@ -51,27 +51,34 @@ router.get("/mars/getDataByYear/:year", async (req: Request, res: Response) => {
 
 
 //MOST IMPORTANT ROUTE
-router.post("/mars/getDataByTimeRange", async (req: Request, res: Response) => {
-  try {
-    console.log("Full Request Body:", req.body);
-    await connectDB();
-    
-    const { start, end } = req.body;
-    const startTime = new Date(start);
-    const endTime = new Date(end);
+router.post(
+  "/mars/getDataByTimeRange",
+  async (req: Request, res: Response) => {
+    try {
+      console.log("Full Request Body:", req.body);
+      await connectDB();
+      const { start, end } = req.body;
 
-    const marsEvents = await MarsEvent.find({
-      time_abs: {
-        $gte: startTime.toISOString(),
-        $lt: endTime.toISOString(),
-      },
-    });
+      // Create start and end dates, setting time to beginning and end of day respectively
+      const startDate = new Date(start);
+      startDate.setHours(0, 0, 0, 0);
 
-    res.status(200).json(marsEvents);
-  } catch (error: any) {
-    console.error("Error fetching Mars event data by time range:", error);
-    res.status(500).json({ error: error.message || "Internal server error" });
+      const endDate = new Date(end);
+      endDate.setHours(23, 59, 59, 999);
+
+      const marsEvents = await MarsEvent.find({
+        time_abs: {
+          $gte: startDate.toISOString(),
+          $lte: endDate.toISOString(),
+        },
+      });
+
+      res.status(200).json(marsEvents);
+    } catch (error: any) {
+      console.error("Error fetching Lunar event data by time range:", error);
+      res.status(500).json({ error: error.message || "Internal server error" });
+    }
   }
-});
+);
 
 export default router;

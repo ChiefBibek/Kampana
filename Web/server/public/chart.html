@@ -1,146 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lunar and Mars Seismic Data Comparison</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-    <style>
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-      .chart-container {
-        flex: 1;
-        min-width: 300px;
-        margin: 10px;
-      }
-      .control-panel {
-        margin: 20px 0;
-        text-align: center;
-      }
-      .control-panel label {
-        margin-right: 10px;
-      }
-      .control-panel select {
-        margin-right: 20px;
-        padding: 5px;
-      }
-      button {
-        padding: 5px 10px;
-        cursor: pointer;
-      }
-      h1 {
-        text-align: center;
-      }
-      h2 {
-        text-align: center;
-      }
-      #chart-controls {
-        text-align: center;
-        margin-bottom: 20px;
-        background-color: #f5f5f5;
-        padding: 15px;
-        border-radius: 5px;
-      }
-      .data-type-selector {
-        margin-bottom: 15px;
-      }
-      select {
-        padding: 8px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-      }
-      button {
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-      }
-      button:hover {
-        background-color: #45a049;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Seismic Data Comparison: Lunar vs Mars</h1>
-
-    <div id="chart-controls">
-      <div class="data-type-selector">
-        <label for="dataType">Data Type:</label>
-        <select id="dataType" onchange="updateBothCharts()">
-          <option value="magnitude">Magnitude</option>
-          <option value="depth">Depth</option>
-          <option value="frequency">Frequency</option>
-          <option value="duration">Duration</option>
-        </select>
-      </div>
-
-      <div class="control-panel">
-        <label for="startYear">Start Year:</label>
-        <select id="startYear"></select>
-
-        <label for="endYear">End Year:</label>
-        <select id="endYear"></select>
-
-        <button onclick="updateBothCharts()">Update Charts</button>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planetary Seismic Data Charts</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <style>
+    .chart-container {
+      margin-bottom: 40px;
+    }
+    .date-selector {
+      margin: 20px 0;
+    }
+    .date-selector label {
+      margin-right: 10px;
+    }
+    .date-selector input {
+      margin-right: 20px;
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Planetary Seismic Data Comparison</h1>
+  
+  <!-- Mars Chart Section -->
+  <div class="chart-container">
+    <h2>Mars Seismic Data</h2>
+    <div class="date-selector">
+      <label for="marsStartDate">Start Date:</label>
+      <input type="date" id="marsStartDate" min="1970-01-01" max="2000-12-31">
+      <label for="marsEndDate">End Date:</label>
+      <input type="date" id="marsEndDate" min="1970-01-01" max="2000-12-31">
+      <button onclick="updateMarsChart()">Update Mars Chart</button>
     </div>
+    <div id="marsChart"></div>
+  </div>
 
-    <div style="display: flex; width: 1920px; margin: 0 auto;">
-      <div id="lunarChart" style="width: 960px;"></div>
-      <div id="marsChart" style="width: 960px;"></div>
+  <!-- Lunar Chart Section -->
+  <div class="chart-container">
+    <h2>Lunar Seismic Data</h2>
+    <div class="date-selector">
+      <label for="lunarStartDate">Start Date:</label>
+      <input type="date" id="lunarStartDate" min="1970-01-01" max="2000-12-31">
+      <label for="lunarEndDate">End Date:</label>
+      <input type="date" id="lunarEndDate" min="1970-01-01" max="2000-12-31">
+      <button onclick="updateLunarChart()">Update Lunar Chart</button>
     </div>
+    <div id="lunarChart"></div>
+  </div>
 
-    <script src="lunarChart.js"></script>
-    <!-- <script src="marsChart.js"></script> -->
-    <script>
-      function updateBothCharts() {
-        const dataType = document.getElementById("dataType").value;
-        const startYear = document.getElementById("startYear").value;
-        const endYear = document.getElementById("endYear").value;
-
-        if (typeof updateLunarChart === "function") {
-          updateLunarChart(dataType, startYear, endYear);
-        }
-        if (typeof updateMarsChart === "function") {
-          updateMarsChart(dataType, startYear, endYear);
-        }
-      }
-
-      function initializeYearDropdowns() {
-        const startYearSelect = document.getElementById("startYear");
-        const endYearSelect = document.getElementById("endYear");
-        const currentYear = new Date().getFullYear();
-        const startYear = 1969; // First lunar seismic data
-
-        for (let year = startYear; year <= currentYear; year++) {
-          startYearSelect.add(new Option(year, year));
-          endYearSelect.add(new Option(year, year));
-        }
-
-        // Set default values
-        endYearSelect.value = currentYear;
-        startYearSelect.value = currentYear - 5;
-      }
-
-      document.addEventListener("DOMContentLoaded", function () {
-        initializeYearDropdowns();
-
-        if (typeof initLunarChart === "function") {
-          initLunarChart();
-        }
-        if (typeof initMarsChart === "function") {
-          initMarsChart();
-        }
-      });
-    </script>
-  </body>
+  <script src="marsChart.js"></script>
+  <!-- <script src="lunarChart.js"></script> -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Set default dates for Mars
+      document.getElementById('marsStartDate').value = '1970-01-01';
+      document.getElementById('marsEndDate').value = '2000-12-31';
+      
+      // Set default dates for Lunar
+      document.getElementById('lunarStartDate').value = '2000-01-01';
+      document.getElementById('lunarEndDate').value = '2024-12-31';
+      
+      // Initial chart renders
+      updateMarsChart();
+      updateLunarChart();
+    });
+  </script>
+</body>
 </html>

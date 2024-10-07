@@ -58,15 +58,19 @@ router.post(
     try {
       console.log("Full Request Body:", req.body);
       await connectDB();
-
       const { start, end } = req.body;
-      const startTime = new Date(start);
-      const endTime = new Date(end);
+
+      // Create start and end dates, setting time to beginning and end of day respectively
+      const startDate = new Date(start);
+      startDate.setHours(0, 0, 0, 0);
+
+      const endDate = new Date(end);
+      endDate.setHours(23, 59, 59, 999);
 
       const lunarEvents = await LunarEvent.find({
         time_abs: {
-          $gte: startTime.toISOString(),
-          $lt: endTime.toISOString(),
+          $gte: startDate.toISOString(),
+          $lte: endDate.toISOString(),
         },
       });
 
@@ -77,5 +81,4 @@ router.post(
     }
   }
 );
-
 export default router;
