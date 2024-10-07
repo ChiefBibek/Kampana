@@ -25,11 +25,18 @@ const Resources = () => {
       source: "earthquakescanada.nrcan.gc.ca",
     },
     {
-      name: "Earth Seismogram Viewer",
-      description: "View seismograms from Earthquake Canada's data.",
-      link: "https://www.earthquakescanada.nrcan.gc.ca/stndon/wf-fo/index-en.php",
-      source: "earthquakescanada.nrcan.gc.ca",
+      name: "Lunar Seismic Data from KAMPANA",
+      description: "Seismic detection of Moon from our Kampana project.",
+      link: "https://drive.google.com/file/d/1PMAVwnl9HPXTEPdmvn2cwayGt-0T8qSq/view?usp=sharing",
+      source: "Space Bytes Moon data",
     },
+    {
+      name: "Mars Seismic Data from KAMPANA",
+      description: "Seismic detection of Mars from our Kampana project.",
+      link: "https://drive.google.com/file/d/1X0LrrbIlNlwl_ZQB_CjeI-tiX7WbxvEG/view?usp=sharing",
+      source: "Space Bytes Mars data",
+    },
+    
   ];
 
   return (
