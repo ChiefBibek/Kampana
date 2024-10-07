@@ -57,7 +57,7 @@ To run the backend server:
 1.  **Navigate to the server directory**:
     
     ```bash
-    cd/..
+    npm install
     cd Web/server
     ```
     
