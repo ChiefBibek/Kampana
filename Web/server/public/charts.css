@@ -1,0 +1,25 @@
+  .chart-container {
+    margin-bottom: 40px;
+  }
+  .date-selector {
+    margin: 20px 0;
+  }
+  .date-selector label {
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  .date-selector input {
+    margin-right: 20px;
+    padding: 5px;
+    font-size: 14px;
+  }
+  button {
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .loading {
+    font-style: italic;
+    color: #666;
+    font-size: 14px;
+  }

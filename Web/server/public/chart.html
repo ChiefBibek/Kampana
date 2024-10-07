@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planetary Seismic Data Charts</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <link rel="stylesheet" href="charts.css">
+</head>
+<body>
+  <h1>Planetary Seismic Data Chart</h1>
+  
+  <!-- Mars Chart Section -->
+  <!-- <div class="chart-container">
+    <h2>Mars Seismic Data</h2>
+    <div class="date-selector">
+      <label for="marsStartDate">Start Date:</label>
+      <input type="date" id="marsStartDate" min="1970-01-01" max="2000-12-31">
+      <label for="marsEndDate">End Date:</label>
+      <input type="date" id="marsEndDate" min="1970-01-01" max="2000-12-31">
+      <button onclick="updateMarsChart()">Update Mars Chart</button>
+    </div>
+    <div id="marsChart"></div>
+  </div> -->
+
+  <!-- Lunar Chart Section -->
+  <div class="chart-container">
+    <h2>Lunar Seismic Data</h2>
+    <div class="date-selector">
+      <label for="lunarStartDate">Start Date:</label>
+      <input type="date" id="lunarStartDate" min="1970-01-01" max="2000-12-31">
+      <label for="lunarEndDate">End Date:</label>
+      <input type="date" id="lunarEndDate" min="1970-01-01" max="2000-12-31">
+      <button onclick="updateLunarChart()">Update Lunar Chart</button>
+    </div>
+    <div id="lunarChart"></div>
+  </div>
+
+  <script src="lunarChart.js"></script>
+  <!-- <script src="marsChart.js"></script> -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Set default dates for Mars
+      document.getElementById('marsStartDate').value = '1971-07-26';
+      document.getElementById('marsEndDate').value = '1971-08-01';
+      
+      // Set default dates for Lunar
+      document.getElementById('lunarStartDate').value = '1971-07-26';
+      document.getElementById('lunarEndDate').value = '1971-08-01';
+      
+      // Initial chart renders
+      updateMarsChart();
+      updateLunarChart();
+    });
+  </script>
+</body>
+</html>
