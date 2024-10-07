@@ -1,6 +1,8 @@
+import React from 'react'
+
 const MarsDThree = () => {
   return (
-    <div>Loading....</div>
+    <div>MarsDThree</div>
   )
 }
 

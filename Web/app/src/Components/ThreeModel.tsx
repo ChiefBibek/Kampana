@@ -82,7 +82,7 @@ const ThreeModel: React.FC = () => {
         <h1
           ref={textRef}
           onClick={handleTextClick}
-          className="absolute top-10 left-1/2 transform -translate-x-1/2 text-4xl font-bold text-white text-center cursor-pointer"
+          className="absolute top-5 left-1/2 transform -translate-x-1/2 text-4xl font-bold text-white text-center cursor-pointer bg-gray-600 px-6 py-3 rounded-full hover:bg-black transition duration-300 ease-in-out active:bg-blue-800 shadow-lg"
         >
           {currentSlide === 0 ? "Moon" : "Mars"}
         </h1>
@@ -96,15 +96,18 @@ const ThreeModel: React.FC = () => {
         </p>
 
         {/* Planet Navigation Buttons */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 space-x-32" style={{ top: "85%" }}>
+        <div
+          className="absolute left-1/2 transform -translate-x-1/2 space-x-32"
+          style={{ top: "85%" }}
+        >
           <button
-            className="bg-red-100 px-5 py-2 text-black rounded-md text-xl"
+            className="bg-red-500 px-8 py-4 text-white rounded-full text-xl font-semibold shadow-md hover:bg-red-600 hover:shadow-lg transition duration-300 ease-in-out active:bg-red-700 active:scale-95"
             onClick={() => goToSlide(0)}
           >
             Moon
           </button>
           <button
-            className="bg-blue-100 px-5 py-2 text-black rounded-md   text-xl"
+            className="bg-blue-500 px-8 py-4 text-white rounded-full text-xl font-semibold shadow-md hover:bg-blue-600 hover:shadow-lg transition duration-300 ease-in-out active:bg-blue-700 active:scale-95"
             onClick={() => goToSlide(1)}
           >
             Mars

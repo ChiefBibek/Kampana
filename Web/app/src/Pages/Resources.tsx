@@ -25,19 +25,15 @@ const Resources = () => {
       source: "earthquakescanada.nrcan.gc.ca",
     },
     {
-      name: "Lunar Seismic Data from KAMPANA",
-      description: "Seismic detection of Moon from our Kampana project.",
-      link: "https://drive.google.com/file/d/1PMAVwnl9HPXTEPdmvn2cwayGt-0T8qSq/view?usp=sharing",
-      source: "Space Bytes Moon data",
+      name: "Earth Seismogram Viewer",
+      description: "View seismograms from Earthquake Canada's data.",
+      link: "https://www.earthquakescanada.nrcan.gc.ca/stndon/wf-fo/index-en.php",
+      source: "earthquakescanada.nrcan.gc.ca",
     },
-    {
-      name: "Mars Seismic Data from KAMPANA",
-      description: "Seismic detection of Mars from our Kampana project.",
-      link: "https://drive.google.com/file/d/1X0LrrbIlNlwl_ZQB_CjeI-tiX7WbxvEG/view?usp=sharing",
-      source: "Space Bytes Mars data",
-    },
-    
   ];
+
+  // Define the single download link for all resources
+  const downloadLink = "https://drive.google.com/drive/folders/1Vwm9yxesyDtALWzMx8F0zW82qXLuLFaT?usp=sharing"; // Replace with the actual Google Drive link
 
   return (
     <div className="container mx-auto p-6 min-h-screen bg-gradient-to-r from-black via-blue-900 to-black text-white">
@@ -62,6 +58,16 @@ const Resources = () => {
             </a>
           </div>
         ))}
+      </div>
+      <div className="mt-8 text-center">
+        <a
+          href={downloadLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition duration-200"
+        >
+          Download All Resources
+        </a>
       </div>
     </div>
   );
